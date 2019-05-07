@@ -28,6 +28,8 @@ const s = StyleSheet.create({
   baseText: {
     color: "rgba(255, 255, 255, 0.8)",
     backgroundColor: "transparent",
+
+
   },
   placeholder: {
     color: "rgba(255, 255, 255, 0.5)",
@@ -40,7 +42,7 @@ const s = StyleSheet.create({
     fontSize: 21,
     position: "absolute",
     top: 95,
-    left: 28,
+    left: 15,
   },
   name: {
     fontSize: 16,
