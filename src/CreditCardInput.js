@@ -75,7 +75,7 @@ const POSTAL_CODE_INPUT_WIDTH = 120; // https://github.com/yannickcr/eslint-plug
     placeholders: {
       name: "Full Name",
       number: "1234 5678 1234 5678",
-      expiry: "MM/YYYY",
+      expiry: "MM/YY",
       cvc: "CVC",
       postalCode: "34567",
     },
