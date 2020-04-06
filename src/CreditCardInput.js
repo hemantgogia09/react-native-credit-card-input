@@ -195,6 +195,12 @@ const POSTAL_CODE_INPUT_WIDTH = 120; // https://github.com/yannickcr/eslint-plug
             keyboardType="numeric"
             isFormDirty={isFormDirty}
             containerStyle={[s.inputContainer, inputContainerStyle, { width: "100%" }]} />
+          {requiresName && (
+            <CCInput
+              {...this._inputProps("name")}
+              isFormDirty={isFormDirty}
+              containerStyle={[s.inputContainer, inputContainerStyle, { width: "100%" }]} />
+          )}
           <CCInput
             {...this._inputProps("expiry")}
             keyboardType="numeric"
@@ -204,12 +210,6 @@ const POSTAL_CODE_INPUT_WIDTH = 120; // https://github.com/yannickcr/eslint-plug
             <CCInput
               {...this._inputProps("cvc")}
               keyboardType="numeric"
-              isFormDirty={isFormDirty}
-              containerStyle={[s.inputContainer, inputContainerStyle, { width: "100%" }]} />
-          )}
-          {requiresName && (
-            <CCInput
-              {...this._inputProps("name")}
               isFormDirty={isFormDirty}
               containerStyle={[s.inputContainer, inputContainerStyle, { width: "100%" }]} />
           )}
