@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ReactNative, {
-  NativeModules, View, Text, StyleSheet, ScrollView, Dimensions, TextInput, ViewPropTypes,
+  NativeModules, View, Text, StyleSheet, ScrollView, Dimensions, TextInput,
 } from "react-native";
+import {ViewPropTypes, TextPropTypes} from 'deprecated-react-native-prop-types';
 
 import CreditCard from "./CardView";
 import CCInput from "./CCInput";
@@ -43,8 +44,8 @@ const POSTAL_CODE_INPUT_WIDTH = 120; // https://github.com/yannickcr/eslint-plug
     labels: PropTypes.object,
     placeholders: PropTypes.object,
 
-    labelStyle: Text.propTypes.style,
-    inputStyle: Text.propTypes.style,
+    labelStyle: TextPropTypes.style,
+    inputStyle: TextPropTypes.style,
     inputContainerStyle: ViewPropTypes.style,
 
     validColor: PropTypes.string,
