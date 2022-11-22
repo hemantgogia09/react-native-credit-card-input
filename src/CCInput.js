@@ -85,12 +85,13 @@ export default class CCInput extends Component {
       additionalInputProps,
       isFormDirty,
     } = this.props;
+    let isError = (isFormDirty && !value) || status === 'invalid';
     return (
       <TouchableOpacity onPress={this.focus} activeOpacity={0.99}>
         <View
           style={[
             containerStyle,
-            {borderBottomColor: isFormDirty && !value ? 'red' : '#212121'},
+            {borderBottomColor: isError ? 'red' : '#212121'},
           ]}
         >
           {!!label && <Text style={[labelStyle]}>{label}</Text>}
@@ -110,7 +111,8 @@ export default class CCInput extends Component {
                 : {},
               {
                 backgroundColor:
-                  isFormDirty && !value ? '#ffefef' : 'transparent',
+                isError ? '#ffefef' : 'transparent',
+                height: 30,
               },
             ]}
             underlineColorAndroid="transparent"
