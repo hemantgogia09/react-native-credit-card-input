@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, createRef} from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
@@ -63,7 +63,9 @@ export default class CCInput extends Component {
     if (status !== 'valid' && newStatus === 'valid') onBecomeValid(field);
   };
 
-  focus = () => this.refs.input.focus();
+  input = createRef();
+
+  focus = () => this.input.current.focus();
 
   _onFocus = () => this.props.onFocus(this.props.field);
 
@@ -96,7 +98,7 @@ export default class CCInput extends Component {
         >
           {!!label && <Text style={[labelStyle]}>{label}</Text>}
           <TextInput
-            ref="input"
+            ref={this.input}
             {...additionalInputProps}
             keyboardType={keyboardType}
             autoCapitalise="words"

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
 import ReactNative, {
   NativeModules, View, Text, StyleSheet, ScrollView, Dimensions, TextInput,
@@ -98,10 +98,12 @@ const POSTAL_CODE_INPUT_WIDTH = 120; // https://github.com/yannickcr/eslint-plug
     if (this.props.focused !== newProps.focused) this._focus(newProps.focused);
   };
 
+  Form = createRef()
+
   _focus = (field) => {
     if (!field) return;
 
-    const scrollResponder = this.refs.Form.getScrollResponder();
+    const scrollResponder = this.Form.current.getScrollResponder();
     const nodeHandle = ReactNative.findNodeHandle(this.refs[field]);
 
     NativeModules.UIManager.measureLayoutRelativeToParent(
@@ -190,7 +192,7 @@ const POSTAL_CODE_INPUT_WIDTH = 120; // https://github.com/yannickcr/eslint-plug
           number={number}
           expiry={expiry}
           cvc={cvc} />
-        <ScrollView ref="Form" keyboardShouldPersistTaps="always" scrollEnabled={allowScroll} showsHorizontalScrollIndicator={false} style={s.form}>
+        <ScrollView ref={this.Form} keyboardShouldPersistTaps="always" scrollEnabled={allowScroll} showsHorizontalScrollIndicator={false} style={s.form}>
           <CCInput
             {...this._inputProps("number")}
             keyboardType="numeric"
