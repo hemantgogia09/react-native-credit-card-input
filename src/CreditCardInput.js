@@ -103,8 +103,8 @@ const POSTAL_CODE_INPUT_WIDTH = 120; // https://github.com/yannickcr/eslint-plug
   _focus = (field) => {
     if (!field) return;
 
-    const scrollResponder = this.Form.current.getScrollResponder();
-    const nodeHandle = ReactNative.findNodeHandle(this.refs[field]);
+    // const scrollResponder = this.Form.current.getScrollResponder();
+    // const nodeHandle = ReactNative.findNodeHandle(this.refs[field]);
 
     // NativeModules.UIManager.measureLayoutRelativeToParent(
     //   nodeHandle,
